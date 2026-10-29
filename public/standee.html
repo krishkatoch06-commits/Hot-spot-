@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hot Spot Hamirpur - QR Table Standee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #FAF7F2;
+      color: #1E1E24;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+    }
+    .standee-container {
+      background: #ffffff;
+      border: 3px solid #C85A32;
+      border-radius: 32px;
+      padding: 48px 36px;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 16px 40px rgba(200, 90, 50, 0.12);
+      position: relative;
+    }
+    .badge {
+      background: #FBEFE9;
+      color: #C85A32;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 8px 20px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 20px;
+      border: 1px solid #F3D5C6;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin: 0 0 6px 0;
+      color: #C85A32;
+      letter-spacing: -0.5px;
+    }
+    p.tagline {
+      font-size: 15px;
+      color: #6B696F;
+      margin: 0 0 28px 0;
+      font-weight: 500;
+    }
+    .qr-frame {
+      background: #FAF7F2;
+      padding: 20px;
+      border-radius: 24px;
+      display: inline-block;
+      margin-bottom: 24px;
+      border: 2px dashed #C85A32;
+    }
+    .qr-frame img {
+      width: 260px;
+      height: 260px;
+      display: block;
+      border-radius: 12px;
+      background: white;
+    }
+    .instructions {
+      text-align: left;
+      background: #FDFBF7;
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      border: 1px solid #EADBCE;
+    }
+    .instructions ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .instructions li {
+      margin-bottom: 6px;
+    }
+    .instructions li:last-child {
+      margin-bottom: 0;
+    }
+    .url-display {
+      font-size: 12px;
+      color: #8C8A90;
+      word-break: break-all;
+      background: #FAF7F2;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .url-display strong {
+      color: #1E1E24;
+    }
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #C85A32;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #B04B26;
+    }
+    .btn-secondary {
+      background: #FAF7F2;
+      color: #1E1E24;
+      border: 1px solid #EADBCE;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .standee-container {
+        box-shadow: none;
+        border: 2px solid #C85A32;
+      }
+      .actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="standee-container">
+    <div class="badge">Contactless Digital Ordering</div>
+    <h1>Hot Spot</h1>
+    <p class="tagline">Hamirpur's Favorite Pizza 'N' Burger Cafe</p>
+
+    <div class="qr-frame">
+      <img src="/hotspot-menu-qr.png" alt="Scan Hot Spot Menu QR Code" />
+    </div>
+
+    <div class="instructions">
+      <ol>
+        <li><strong>Open your phone camera</strong> (iPhone / Android) and scan the QR code.</li>
+        <li><strong>Select your table number</strong> on the digital menu.</li>
+        <li><strong>Add freshly prepared dishes</strong> to your cart and customize options.</li>
+        <li><strong>Submit order</strong> &amp; watch real-time kitchen preparation status!</li>
+      </ol>
+    </div>
+
+    <div class="url-display">
+      Direct Link: <strong>https://certainly-practitioner-assets-earl.trycloudflare.com</strong>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="window.print()">Print Standee (A4)</button>
+      <a href="/hotspot-menu-qr.png" download="hotspot-menu-qr.png" class="btn btn-secondary" style="text-decoration:none;">Download PNG</a>
+    </div>
+  </div>
+</body>
+</html>

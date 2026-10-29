@@ -1,0 +1,487 @@
+export interface MenuItemVariant {
+  id: string;
+  name: string;
+  priceAdjustment: number;
+  isDefault?: boolean;
+}
+
+export interface MenuItemAddon {
+  id: string;
+  name: string;
+  price: number;
+  isAvailable?: boolean;
+}
+
+export interface MenuItem {
+  id: string;
+  categoryId: string;
+  name: string;
+  description: string;
+  basePrice: number;
+  imageUrl: string;
+  isVeg: boolean;
+  isAvailable: boolean;
+  preparationTimeMinutes: number;
+  isBestseller?: boolean;
+  spicyLevel?: number; // 0: None, 1: Mild, 2: Medium, 3: Hot
+  variants?: MenuItemVariant[];
+  addons?: MenuItemAddon[];
+  tags?: string[];
+}
+
+export interface MenuCategory {
+  id: string;
+  name: string;
+  description: string;
+  displayOrder: number;
+  icon: string;
+  isActive: boolean;
+}
+
+export interface RestaurantTable {
+  id: string;
+  tableNumber: string;
+  displayName: string;
+  capacity: number;
+  isActive: boolean;
+  qrSlug: string;
+}
+
+export interface RestaurantSettings {
+  name: string;
+  tagline: string;
+  logoUrl?: string;
+  address: string;
+  googleMapsUrl: string;
+  phone: string;
+  email: string;
+  currency: string;
+  currencySymbol: string;
+  taxPercent: number;
+  serviceChargePercent: number;
+  isOpen: boolean;
+  openingTime: string;
+  closingTime: string;
+  orderNotes: string;
+  customDomain?: string;
+}
+
+export const INITIAL_RESTAURANT_SETTINGS: RestaurantSettings = {
+  name: 'Hot Spot',
+  tagline: "Hamirpur's Favorite Pizza 'N' Burger Cafe",
+  address: 'Near Gandhi Chowk & Shani Mandir, Hamirpur, Himachal Pradesh 177001',
+  googleMapsUrl: 'https://maps.app.goo.gl/B2fHCFbCtg1jejDu7',
+  phone: '+91 98160 54321',
+  email: 'hotspot.hamirpur@gmail.com',
+  currency: 'INR',
+  currencySymbol: '₹',
+  taxPercent: 5.0,
+  serviceChargePercent: 0.0,
+  isOpen: true,
+  openingTime: '10:30 AM',
+  closingTime: '10:00 PM',
+  orderNotes: 'Freshly prepared to order. Orders are sent immediately to the kitchen.'
+};
+
+export const INITIAL_TABLES: RestaurantTable[] = [
+  { id: 'tbl-1', tableNumber: '1', displayName: 'Table 1 (Window Side)', capacity: 4, isActive: true, qrSlug: 't-1' },
+  { id: 'tbl-2', tableNumber: '2', displayName: 'Table 2 (Window Side)', capacity: 4, isActive: true, qrSlug: 't-2' },
+  { id: 'tbl-3', tableNumber: '3', displayName: 'Table 3 (Central Booth)', capacity: 6, isActive: true, qrSlug: 't-3' },
+  { id: 'tbl-4', tableNumber: '4', displayName: 'Table 4 (Central Booth)', capacity: 6, isActive: true, qrSlug: 't-4' },
+  { id: 'tbl-5', tableNumber: '5', displayName: 'Table 5 (Couple Cozy Table)', capacity: 2, isActive: true, qrSlug: 't-5' },
+  { id: 'tbl-6', tableNumber: '6', displayName: 'Table 6 (Couple Cozy Table)', capacity: 2, isActive: true, qrSlug: 't-6' },
+  { id: 'tbl-7', tableNumber: '7', displayName: 'Table 7 (Family Lounge)', capacity: 8, isActive: true, qrSlug: 't-7' },
+  { id: 'tbl-8', tableNumber: '8', displayName: 'Table 8 (Family Lounge)', capacity: 8, isActive: true, qrSlug: 't-8' },
+  { id: 'tbl-9', tableNumber: '9', displayName: 'Table 9 (Balcony Terrace)', capacity: 4, isActive: true, qrSlug: 't-9' },
+  { id: 'tbl-10', tableNumber: '10', displayName: 'Table 10 (Balcony Terrace)', capacity: 4, isActive: true, qrSlug: 't-10' },
+  { id: 'tbl-11', tableNumber: '11', displayName: 'Table 11 (Corner Alcove)', capacity: 4, isActive: true, qrSlug: 't-11' },
+  { id: 'tbl-12', tableNumber: '12', displayName: 'Table 12 (Express Bar Counter)', capacity: 2, isActive: true, qrSlug: 't-12' },
+];
+
+export const INITIAL_CATEGORIES: MenuCategory[] = [
+  {
+    id: 'cat-pizzas',
+    name: 'Artisan Pizzas',
+    description: 'Crispy stone-baked crust with gourmet toppings & rich mozzarella',
+    displayOrder: 1,
+    icon: 'Pizza',
+    isActive: true,
+  },
+  {
+    id: 'cat-burgers',
+    name: 'Gourmet Burgers',
+    description: 'Fresh grilled buns, crunchy patties, signature sauces & crispy fries',
+    displayOrder: 2,
+    icon: 'Sandwich',
+    isActive: true,
+  },
+  {
+    id: 'cat-momos',
+    name: 'Himalayan Momos',
+    description: 'Hamirpur student-favorite dumplings with spicy red garlic dip',
+    displayOrder: 3,
+    icon: 'Soup',
+    isActive: true,
+  },
+  {
+    id: 'cat-pasta',
+    name: 'Pastas & Noodles',
+    description: 'Sizzling wok-tossed noodles and rich Italian sauces',
+    displayOrder: 4,
+    icon: 'UtensilsCrossed',
+    isActive: true,
+  },
+  {
+    id: 'cat-starters',
+    name: 'Crispy Quick Bites',
+    description: 'Golden fries, loaded nachos and cheesy party platters',
+    displayOrder: 5,
+    icon: 'Sparkles',
+    isActive: true,
+  },
+  {
+    id: 'cat-shakes',
+    name: 'Thick Shakes & Coolers',
+    description: 'Handcrafted chillers, artisan cold coffees and creamy shakes',
+    displayOrder: 6,
+    icon: 'CupSoda',
+    isActive: true,
+  },
+];
+
+export const INITIAL_MENU_ITEMS: MenuItem[] = [
+  // Pizzas
+  {
+    id: 'item-pz-1',
+    categoryId: 'cat-pizzas',
+    name: 'Hot Spot Farmhouse Supreme',
+    description: 'Loaded with capsicum, crunchy red onion, sweet corn, black olives, and 100% whole milk mozzarella.',
+    basePrice: 249,
+    imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 18,
+    isBestseller: true,
+    spicyLevel: 1,
+    tags: ['Chef Special', 'Best Seller'],
+    variants: [
+      { id: 'v-pz1-reg', name: 'Regular (7")', priceAdjustment: 0, isDefault: true },
+      { id: 'v-pz1-med', name: 'Medium (9")', priceAdjustment: 140 },
+      { id: 'v-pz1-lrg', name: 'Large (12")', priceAdjustment: 260 },
+    ],
+    addons: [
+      { id: 'ad-cheese-burst', name: 'Cheese Burst Crust', price: 69 },
+      { id: 'ad-jalapeno', name: 'Extra Pickled Jalapeños', price: 35 },
+      { id: 'ad-dip', name: 'Garlic Mayo Dip', price: 29 },
+    ],
+  },
+  {
+    id: 'item-pz-2',
+    categoryId: 'cat-pizzas',
+    name: 'Paneer Makhani Fusion Pizza',
+    description: 'Tender marinated cottage cheese cubes tossed in rich makhani gravy, green chilies, and fresh coriander.',
+    basePrice: 279,
+    imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 20,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Fusion Favorite'],
+    variants: [
+      { id: 'v-pz2-reg', name: 'Regular (7")', priceAdjustment: 0, isDefault: true },
+      { id: 'v-pz2-med', name: 'Medium (9")', priceAdjustment: 150 },
+      { id: 'v-pz2-lrg', name: 'Large (12")', priceAdjustment: 280 },
+    ],
+    addons: [
+      { id: 'ad-p2-cheese', name: 'Extra Mozzarella', price: 49 },
+      { id: 'ad-p2-paneer', name: 'Extra Paneer Chunks', price: 50 },
+    ],
+  },
+  {
+    id: 'item-pz-3',
+    categoryId: 'cat-pizzas',
+    name: 'Classic Margherita Basil',
+    description: 'Simple Italian perfection: San Marzano tomato reduction, basil oil, and molten fresh mozzarella.',
+    basePrice: 199,
+    imageUrl: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 15,
+    isBestseller: false,
+    spicyLevel: 0,
+    tags: ['Classic'],
+    variants: [
+      { id: 'v-pz3-reg', name: 'Regular (7")', priceAdjustment: 0, isDefault: true },
+      { id: 'v-pz3-med', name: 'Medium (9")', priceAdjustment: 120 },
+    ],
+    addons: [
+      { id: 'ad-p3-chilli', name: 'Chilli Flakes & Herb Box', price: 15 },
+    ],
+  },
+  {
+    id: 'item-pz-4',
+    categoryId: 'cat-pizzas',
+    name: 'Smoky BBQ Chicken Pizza',
+    description: 'Tender roast chicken cubes tossed in smoky hickory barbecue glaze with sweet red onions and cheddar.',
+    basePrice: 299,
+    imageUrl: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=800&auto=format&fit=crop&q=80',
+    isVeg: false,
+    isAvailable: true,
+    preparationTimeMinutes: 20,
+    isBestseller: true,
+    spicyLevel: 1,
+    tags: ['Non-Veg', 'BBQ Special'],
+    variants: [
+      { id: 'v-pz4-reg', name: 'Regular (7")', priceAdjustment: 0, isDefault: true },
+      { id: 'v-pz4-med', name: 'Medium (9")', priceAdjustment: 160 },
+      { id: 'v-pz4-lrg', name: 'Large (12")', priceAdjustment: 310 },
+    ],
+    addons: [
+      { id: 'ad-p4-chicken', name: 'Extra BBQ Chicken', price: 65 },
+      { id: 'ad-p4-cheese', name: 'Extra Cheese Burst', price: 69 },
+    ],
+  },
+
+  // Burgers
+  {
+    id: 'item-bg-1',
+    categoryId: 'cat-burgers',
+    name: 'Hot Spot Double Crunch Burger',
+    description: 'Crisp vegetable cutlet, caramelized onions, melted American cheddar slice, and chef secret spicy mayo.',
+    basePrice: 139,
+    imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 12,
+    isBestseller: true,
+    spicyLevel: 1,
+    tags: ['Campus Hit'],
+    variants: [
+      { id: 'v-bg1-sgl', name: 'Single Patty', priceAdjustment: 0, isDefault: true },
+      { id: 'v-bg1-dbl', name: 'Monster Double Patty', priceAdjustment: 55 },
+    ],
+    addons: [
+      { id: 'ad-bg-fries', name: 'Add Small Peri-Peri Fries', price: 59 },
+      { id: 'ad-bg-cheese', name: 'Extra Molten Cheese Slice', price: 25 },
+    ],
+  },
+  {
+    id: 'item-bg-2',
+    categoryId: 'cat-burgers',
+    name: 'Peri-Peri Paneer King Burger',
+    description: 'Thick marinated cottage cheese steak crumb-fried to a golden crunch, layered with iceberg lettuce and chipotle.',
+    basePrice: 169,
+    imageUrl: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 15,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Spicy', 'Veggie King'],
+    addons: [
+      { id: 'ad-bg2-cheese', name: 'Extra Cheese Slice', price: 25 },
+      { id: 'ad-bg2-drink', name: 'Add Fresh Lime Soda', price: 49 },
+    ],
+  },
+  {
+    id: 'item-bg-3',
+    categoryId: 'cat-burgers',
+    name: 'Crispy Golden Chicken Zinger Burger',
+    description: 'Juicy whole chicken breast seasoned in Southern herbs, coated in crunchy flakes, topped with garlic aioli.',
+    basePrice: 189,
+    imageUrl: 'https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=800&auto=format&fit=crop&q=80',
+    isVeg: false,
+    isAvailable: true,
+    preparationTimeMinutes: 16,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Non-Veg', 'Crowd Favorite'],
+    variants: [
+      { id: 'v-bg3-reg', name: 'Classic Zinger', priceAdjustment: 0, isDefault: true },
+      { id: 'v-bg3-double', name: 'Double Patty Extreme', priceAdjustment: 80 },
+    ],
+    addons: [
+      { id: 'ad-bg3-bacon', name: 'Crisp Chicken Patty Addon', price: 65 },
+      { id: 'ad-bg3-cheese', name: 'Extra Cheddar Slice', price: 25 },
+    ],
+  },
+
+  // Momos
+  {
+    id: 'item-mo-1',
+    categoryId: 'cat-momos',
+    name: 'Steamed Himalayan Paneer Momos (8 Pcs)',
+    description: 'Delicate hand-folded parcels filled with spiced cottage cheese, minced shallots, and ginger. Served with fiery chutney.',
+    basePrice: 129,
+    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 12,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Authentic Himalayan'],
+    variants: [
+      { id: 'v-mo1-steam', name: 'Classic Steamed', priceAdjustment: 0, isDefault: true },
+      { id: 'v-mo1-fried', name: 'Crispy Deep Fried', priceAdjustment: 20 },
+      { id: 'v-mo1-kurkure', name: 'Kurkure Crunchy Crust', priceAdjustment: 40 },
+    ],
+    addons: [
+      { id: 'ad-mo-extra-chutney', name: 'Extra Fiery Red Chutney', price: 15 },
+      { id: 'ad-mo-mayo', name: 'Tandoori Mayo Dip', price: 25 },
+    ],
+  },
+  {
+    id: 'item-mo-2',
+    categoryId: 'cat-momos',
+    name: 'Spicy Tandoori Gravy Momos (8 Pcs)',
+    description: 'Charcoal-infused momos tossed in a velvety tandoori tomato gravy, cream, and chaat masala.',
+    basePrice: 169,
+    imageUrl: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 16,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Must Try'],
+  },
+  {
+    id: 'item-mo-3',
+    categoryId: 'cat-momos',
+    name: 'Chicken Himalayan Juicy Momos (8 Pcs)',
+    description: 'Minced chicken seasoned with mountain herbs and spring onions, steamed succulent and juicy.',
+    basePrice: 159,
+    imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&auto=format&fit=crop&q=80',
+    isVeg: false,
+    isAvailable: true,
+    preparationTimeMinutes: 14,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Non-Veg'],
+    variants: [
+      { id: 'v-mo3-steam', name: 'Classic Steamed', priceAdjustment: 0, isDefault: true },
+      { id: 'v-mo3-fried', name: 'Crispy Fried', priceAdjustment: 20 },
+      { id: 'v-mo3-kurkure', name: 'Kurkure Crunchy', priceAdjustment: 40 },
+    ],
+    addons: [
+      { id: 'ad-mo3-dip', name: 'Garlic Mayo Cup', price: 20 },
+    ],
+  },
+
+  // Pastas & Noodles
+  {
+    id: 'item-pa-1',
+    categoryId: 'cat-pasta',
+    name: 'Creamy Alfredo White Sauce Penne',
+    description: 'Penne pasta tossed in garlic herb butter, fresh cream, mushrooms, sweet corn, and parmesan.',
+    basePrice: 199,
+    imageUrl: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 15,
+    isBestseller: true,
+    spicyLevel: 0,
+    tags: ['Creamy'],
+    addons: [
+      { id: 'ad-pa-garlicbread', name: 'Add 2 Pcs Garlic Bread', price: 49 },
+      { id: 'ad-pa-cheese', name: 'Extra Grated Parmesan', price: 35 },
+    ],
+  },
+  {
+    id: 'item-pa-2',
+    categoryId: 'cat-pasta',
+    name: 'Chilli Garlic Hakka Noodles',
+    description: 'Wok-tossed noodles with shredded cabbage, bell peppers, carrots, garlic chips, and spicy oriental sauces.',
+    basePrice: 159,
+    imageUrl: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 14,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Desi Chinese'],
+  },
+
+  // Starters
+  {
+    id: 'item-st-1',
+    categoryId: 'cat-starters',
+    name: 'Peri-Peri Crinkle Cut Fries',
+    description: 'Golden crunchy fries dusted with our authentic zesty African peri-peri spice blend. Served with cheesy dip.',
+    basePrice: 119,
+    imageUrl: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 10,
+    isBestseller: true,
+    spicyLevel: 2,
+    tags: ['Popular'],
+    variants: [
+      { id: 'v-fr-reg', name: 'Regular Basket', priceAdjustment: 0, isDefault: true },
+      { id: 'v-fr-jumbo', name: 'Jumbo Share Bucket', priceAdjustment: 50 },
+    ],
+    addons: [
+      { id: 'ad-st-cheese', name: 'Melted Cheddar Drizzle', price: 39 },
+    ],
+  },
+  {
+    id: 'item-st-2',
+    categoryId: 'cat-starters',
+    name: 'Crispy Cheese Corn Triangles (6 Pcs)',
+    description: 'Golden breaded triangles stuffed with sweet American corn and gooey melted cheese.',
+    basePrice: 149,
+    imageUrl: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 12,
+    isBestseller: false,
+    spicyLevel: 0,
+  },
+
+  // Shakes & Beverages
+  {
+    id: 'item-sh-1',
+    categoryId: 'cat-shakes',
+    name: 'Signature Hazelnut Cold Coffee',
+    description: 'Double shot slow-brewed espresso blended with chilled whole milk, roasted hazelnut syrup, and vanilla cream.',
+    basePrice: 139,
+    imageUrl: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 7,
+    isBestseller: true,
+    spicyLevel: 0,
+    tags: ['Best Seller'],
+    addons: [
+      { id: 'ad-sh-icecream', name: 'Add Vanilla Ice Cream Scoop', price: 35 },
+    ],
+  },
+  {
+    id: 'item-sh-2',
+    categoryId: 'cat-shakes',
+    name: 'Brownie Blast Thick Shake',
+    description: 'Decadent chocolate fudge shake blended with real baked brownie chunks, chocolate syrup, and whipped cream.',
+    basePrice: 169,
+    imageUrl: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 8,
+    isBestseller: true,
+    spicyLevel: 0,
+    tags: ['Sweet Tooth'],
+  },
+  {
+    id: 'item-sh-3',
+    categoryId: 'cat-shakes',
+    name: 'Fresh Mint Virgin Mojito',
+    description: 'Muddled fresh mountain mint leaves, lime wedges, simple cane syrup, and sparkling soda over crushed ice.',
+    basePrice: 119,
+    imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop&q=80',
+    isVeg: true,
+    isAvailable: true,
+    preparationTimeMinutes: 6,
+    isBestseller: false,
+    spicyLevel: 0,
+    tags: ['Refreshing'],
+  },
+];

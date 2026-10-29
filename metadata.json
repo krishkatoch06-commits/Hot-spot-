@@ -1,0 +1,6 @@
+{
+  "name": "Hot Spot QR - Digital Restaurant & Kitchen System",
+  "description": "Complete production-ready digital QR-code ordering, real-time kitchen display system (KDS), and restaurant admin management for Hot Spot, Hamirpur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

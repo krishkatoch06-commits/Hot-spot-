@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Hot Spot QR - Digital Restaurant & Kitchen System</title>
+    <meta name="description" content="Complete production-ready digital QR-code ordering, real-time kitchen display system (KDS), and restaurant admin management for Hot Spot, Hamirpur." />
+    <meta property="og:title" content="Hot Spot QR - Digital Restaurant & Kitchen System" />
+    <meta property="og:description" content="Complete production-ready digital QR-code ordering, real-time kitchen display system (KDS), and restaurant admin management for Hot Spot, Hamirpur." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // Ensure window.fetch has both a getter and setter so browser extensions and evaluators can safely wrap it
+      (function() {
+        try {
+          var _origFetch = window.fetch;
+          var _currentFetch = _origFetch;
+          var descriptor = {
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(val) {
+              _currentFetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          };
+          try {
+            Object.defineProperty(window, 'fetch', descriptor);
+          } catch (e1) {}
+          try {
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              Object.defineProperty(Window.prototype, 'fetch', descriptor);
+            }
+          } catch (e2) {}
+        } catch (err) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#FAF7F2] text-[#1E1E24] antialiased selection:bg-[#C85A32] selection:text-white min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
